@@ -10,4 +10,5 @@ In this end to end demo, we will be build and deploy a highly avaible and scalab
 
 ### Architecture 
 
+![image](https://github.com/amazinglyaws/aws-three-tier-webapp-architecture/assets/133778900/b7a167a9-cdee-4d09-b6c9-e7ce8d1176e1)
 
