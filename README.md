@@ -1,37 +1,41 @@
 # aws-three-tier-webapp-architecture
-Deploy a three tier web application on AWS - end to end demo
+Deploy a three tier web application on AWS - end to end
 
 Use Case: To build a highly available, scalable three tier web-app using AWS cloud services
 
 ### Description
 
-In this end to end demo, we will be build and deploy a highly avaible and scalable three tier web architecture manually using AWS console. Assumption is that you have at least some foundational knowledge around VPC, EC2, RDS, S3, ELB.
+In this end to end demo, we will be build and deploy a highly available and scalable three tier web  application architecture using AWS console. Assumption is that you have at least some foundational knowledge around VPC, EC2, RDS, S3, ELB etc.
 
 
 ### Architecture 
 
+In our architecture, client traffic is forwarded to our web tier EC2 instances using a public-facing Application Load Balancer. The web tier is running Nginx webservers that are configured to serve a React.js website. This web tier redirects our API calls to the application tier’s internal facing load balancer. The internal facing load balancer then forwards that traffic to the application tier, which is written in Node.js. The application tier manipulates data in an Aurora MySQL multi-AZ database and returns it to our web tier. Load balancing, health checks and autoscaling groups are created at each layer to maintain the availability of this architecture.
+
 ![image](https://github.com/amazinglyaws/aws-three-tier-webapp-architecture/assets/133778900/b7a167a9-cdee-4d09-b6c9-e7ce8d1176e1)
 
 ### Pre-requisites
-- Setup an AWS free tier (if there is none)
+- An AWS account (free tier should work)
+- An IDE/Text Editor of your choice (VS Code recommended)
   
 #### 01- Initial Setup
-- Download code from GitHubgit
+- Download code from GitHub
 ```
   clone https://github.com/aws-samples/aws-three-tier-web-architecture-workshop.git
 ```
+- Use VS Code IDE (to view/edit the files)
 - Create S3 bucket
 - Create IAM EC2 Instance Role
 
 #### 02- Networking and Security
 - Create VPC and Subnets
-- Create Internet Gateway (IGW)
+- Create Internet Gateway and NAT Gateways (for public subnets)
 - Setup Routing
 - Create Security Groups (SG)
 
 #### 03- Deploy Database
 - Create Subnet Groups
-- Deploy Databae
+- Deploy RDS Aurora Database
 
 #### 04- Deploy App Tier Instance
 - Deploy the App from S3
@@ -42,6 +46,7 @@ In this end to end demo, we will be build and deploy a highly avaible and scalab
 
 #### 05- Setup Internal Load Balancing and Auto Scaling (for App Tier)
 - Create App Tier AMI (for auto-scaling)
+  NodeJS application runs of port 4000
 - Create Target Group
 - Create Internal Load Balaner (NLB)
 - Create Launch Template
