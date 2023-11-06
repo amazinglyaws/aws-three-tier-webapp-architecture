@@ -24,7 +24,6 @@ In our architecture, client traffic is forwarded to our web tier EC2 instances u
 ```
   clone https://github.com/aws-samples/aws-three-tier-web-architecture-workshop.git
 ```
-- Use VS Code IDE (to view/edit the files)
 - Create S3 bucket
 - Create IAM EC2 Instance Role
 
