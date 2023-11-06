@@ -12,7 +12,8 @@ In this end to end demo, we will be build and deploy a highly available and scal
 
 In our architecture, client traffic is forwarded to our web tier EC2 instances using a public-facing Application Load Balancer. The web tier is running Nginx webservers that are configured to serve a React.js website. This web tier redirects our API calls to the application tier’s internal facing load balancer. The internal facing load balancer then forwards that traffic to the application tier, which is written in Node.js. The application tier manipulates data in an Aurora MySQL multi-AZ database and returns it to our web tier. Load balancing, health checks and autoscaling groups are created at each layer to maintain the availability of this architecture.
 
-![image](https://github.com/amazinglyaws/aws-three-tier-webapp-architecture/assets/133778900/b7a167a9-cdee-4d09-b6c9-e7ce8d1176e1)
+![image](https://github.com/amazinglyaws/aws-three-tier-webapp-architecture/assets/133778900/51d3f4c1-7731-4620-a164-7e982739efaf)
+
 
 ### Pre-requisites
 - An AWS account (free tier should work)
