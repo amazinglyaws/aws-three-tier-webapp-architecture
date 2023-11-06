@@ -36,11 +36,29 @@ In our architecture, client traffic is forwarded to our web tier EC2 instances u
 #### 03- Deploy Database
 - Create Subnet Groups
 - Deploy RDS Aurora Database
+  takes about 20 minutes to start the database
 
 #### 04- Deploy App Tier Instance
 - Deploy the App from S3
 - Connect to App Instance
 - Configure Database
+
+sh-5.2$ sudo yum install mysql
+Last metadata expiration check: 1:01:40 ago on Mon Nov  6 18:27:05 2023.
+No match for argument: mysql
+Error: Unable to find a match: mysql
+
+If you get the above error, follow the below steps
+
+The Amazon Linux 2023 repository does not seem to contain MySQL.
+https://docs.aws.amazon.com/linux/al2023/release-notes/support-info-by-package.html
+
+Therefore, the following installation procedure must be used.
+
+sudo su -
+dnf -y localinstall https://dev.mysql.com/get/mysql80-community-release-el9-4.noarch.rpm
+dnf -y install mysql mysql-community-client
+
 - Configure App Instance
 - Test App Tier
 
