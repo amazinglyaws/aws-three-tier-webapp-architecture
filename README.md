@@ -21,9 +21,9 @@ In our architecture, client traffic is forwarded to our web tier EC2 instances u
   
 #### 01- Initial Setup
 - Download code from GitHub
-```
-  git clone https://github.com/amazinglyaws/aws-three-tier-webapp-architecture.git
-```
+  ```
+    git clone https://github.com/amazinglyaws/aws-three-tier-webapp-architecture.git
+  ```
 - Create S3 bucket
 - Create IAM EC2 Instance Role
 
@@ -43,10 +43,12 @@ In our architecture, client traffic is forwarded to our web tier EC2 instances u
 - Connect to App Instance
 - Configure Database
 
-sh-5.2$ sudo yum install mysql
-Last metadata expiration check: 1:01:40 ago on Mon Nov  6 18:27:05 2023.
-No match for argument: mysql
-Error: Unable to find a match: mysql
+```
+  sh-5.2$ sudo yum install mysql
+  Last metadata expiration check: 1:01:40 ago on Mon Nov  6 18:27:05 2023.
+  No match for argument: mysql
+  Error: Unable to find a match: mysql
+```
 
 If you get the above error, follow the below steps
 
@@ -55,16 +57,18 @@ https://docs.aws.amazon.com/linux/al2023/release-notes/support-info-by-package.h
 
 Therefore, the following installation procedure must be used.
 
-sudo su -
-dnf -y localinstall https://dev.mysql.com/get/mysql80-community-release-el9-4.noarch.rpm
-dnf -y install mysql mysql-community-client
+```
+  sudo su -
+  dnf -y localinstall https://dev.mysql.com/get/mysql80-community-release-el9-4.noarch.rpm
+  dnf -y install mysql mysql-community-client
+```
 
 - Configure App Instance
 - Test App Tier
 
 #### 05- Setup Internal Load Balancing and Auto Scaling (for App Tier)
 - Create App Tier AMI (for auto-scaling)
-  NodeJS application runs of port 4000
+  - NodeJS application runs of port 4000
 - Create Target Group
 - Create Internal Load Balaner (NLB)
 - Create Launch Template
